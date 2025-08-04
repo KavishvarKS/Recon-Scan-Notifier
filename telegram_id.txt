@@ -1,0 +1,71 @@
+## ✅ 1. **Get your Telegram Bot Token**
+
+### Steps:
+
+1. **Open Telegram app**
+
+2. Search for **`@BotFather`** and start a chat
+
+3. Type: `/newbot`
+
+4. Follow the instructions:
+
+   * Give your bot a name (e.g., `ReconScannerBot`)
+   * Choose a username (must end in `bot`, e.g., `recon_scanner_bot`)
+
+5. BotFather will now give you something like:
+
+   ```
+   Done! Your bot is created. You can find it at t.me/recon_scanner_bot.
+   Use this token to access the HTTP API:
+   123456789:ABCdefGHIjklMNOpqrSTUvwxYZ
+   ```
+
+✅ **Copy that token** → That’s your **`TELEGRAM_TOKEN`**
+
+---
+
+## ✅ 2. **Get your Telegram Chat ID**
+
+This tells the bot where to send messages.
+
+### Option 1: Easiest way (manual)
+
+1. **Send a message to your bot** (go to the link `t.me/<your_bot_username>` and click "Start")
+
+2. Now open this URL in your browser (replace `YOUR_TOKEN`):
+
+   ```
+   https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates
+   ```
+
+   Example:
+
+   ```
+   https://api.telegram.org/bot123456789:ABCdefGHIjklMNOpqrSTUvwxYZ/getUpdates
+   ```
+
+3. You'll see a JSON response. Look for:
+
+   ```json
+   "chat": {
+     "id": 5541122794,
+     "first_name": "YourName",
+     ...
+   }
+   ```
+
+✅ **That `id` is your Chat ID.** Use it in your Python code.
+
+---
+
+## 🔐 Example usage in script:
+
+```python
+TELEGRAM_TOKEN = "123456789:ABCdefGHIjklMNOpqrSTUvwxYZ"
+TELEGRAM_CHAT_ID = "5541122794"
+```
+
+---
+
+If you're stuck, just give me your **bot username**, and I’ll walk you through checking your chat ID.
